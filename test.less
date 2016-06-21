@@ -1,0 +1,27 @@
+.mixin() {
+  padding: 42px;
+}
+
+.test1 { // ok
+  background: red;
+}
+
+.test2 { // false error near .mixin();
+  background: red;
+  .mixin();
+}
+
+.test3 { // ok
+  background: red;
+  .mixin()
+}
+
+.test4 { // false error near .mixin(); + wrong position
+  .mixin();
+  background: red;
+}
+
+.test5 { // false error near .mixin; + wrong position
+  .mixin;
+  background: red;
+}
